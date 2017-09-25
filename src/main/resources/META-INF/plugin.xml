@@ -1,0 +1,37 @@
+<idea-plugin>
+    <id>com.fbsum.plugin.extractarray</id>
+    <name>Extract array</name>
+    <version>0.0.1</version>
+    <vendor email="scausum@gmail.com" url="https://github.com/fbsum">fbsum</vendor>
+
+    <description><![CDATA[
+      Plugin for extracting resources to an array resource.<br>
+    ]]></description>
+
+    <change-notes><![CDATA[
+      Release 0.0.1: Initial release.<br>
+    ]]>
+    </change-notes>
+
+    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
+    <idea-version since-build="162"/>
+
+    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+         on how to target different products -->
+    <!-- uncomment to enable plugin in all products
+    <depends>com.intellij.modules.lang</depends>
+    -->
+
+    <extensions defaultExtensionNs="com.intellij">
+    </extensions>
+
+    <actions>
+        <action id="ExtractArrayAction"
+                class="com.fbsum.plugin.extractarray.ExtractArrayAction"
+                text="Extract Resources To Array"
+                description="Plugin for extracting resources to an array resource.">
+            <add-to-group group-id="ToolsXmlGroup" anchor="first"/>
+        </action>
+    </actions>
+
+</idea-plugin>
