@@ -1,5 +1,5 @@
 # ExtractArrayPlugin
-Plugin for extracting resources to an array resource.
+Plugin for extracting strings or colors to array.
 
 ### Eg.
 
