@@ -1,15 +1,15 @@
 <idea-plugin>
     <id>com.fbsum.plugin.extractarray</id>
-    <name>Extract array</name>
-    <version>0.0.1</version>
+    <name>Extract strings or colors to array</name>
+    <version>0.0.2</version>
     <vendor email="scausum@gmail.com" url="https://github.com/fbsum">fbsum</vendor>
 
     <description><![CDATA[
-      Plugin for extracting resources to an array resource.<br>
+      Plugin for extracting strings or colors to array.<br>
     ]]></description>
 
     <change-notes><![CDATA[
-      Release 0.0.1: Initial release.<br>
+      Release 0.0.2: Refactor some code and description.<br>
     ]]>
     </change-notes>
 
@@ -28,8 +28,8 @@
     <actions>
         <action id="ExtractArrayAction"
                 class="com.fbsum.plugin.extractarray.ExtractArrayAction"
-                text="Extract Resources To Array"
-                description="Plugin for extracting resources to an array resource.">
+                text="Extract Strings Or Colors To Array"
+                description="Plugin for extracting strings or colors to array.">
             <add-to-group group-id="ToolsXmlGroup" anchor="first"/>
         </action>
     </actions>

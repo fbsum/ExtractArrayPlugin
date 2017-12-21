@@ -7,6 +7,7 @@ import com.intellij.openapi.actionSystem.PlatformDataKeys
 import com.intellij.openapi.command.WriteCommandAction
 import com.intellij.openapi.diagnostic.Logger
 import com.intellij.openapi.vfs.VirtualFile
+import com.intellij.ui.components.JBScrollPane
 import java.awt.Dimension
 import javax.swing.JFrame
 import javax.swing.JScrollPane
@@ -16,8 +17,14 @@ import javax.swing.WindowConstants
 class ExtractArrayAction : AnAction() {
 
     private val log = Logger.getInstance(ExtractArrayAction::class.java)
-    private val VALID_FILE_NAMES = mutableListOf("strings.xml", "colors.xml")
 
+    companion object {
+        private val VALID_FILE_NAMES = mutableListOf("strings.xml", "colors.xml")
+    }
+
+    /**
+     * 更新：判断插件是否显示
+     */
     override fun update(event: AnActionEvent) {
         super.update(event)
         event.presentation.isVisible = false
@@ -27,12 +34,15 @@ class ExtractArrayAction : AnAction() {
     }
 
     /**
-     * 判断当前显示的文件是否为 strings.xml
+     * 判断当前显示的文件是否为 VALID_FILE_NAMES 所包含的文件
      */
     private fun isValidFile(file: VirtualFile): Boolean {
         return VALID_FILE_NAMES.contains(file.name)
     }
 
+    /**
+     * 执行插件
+     */
     override fun actionPerformed(event: AnActionEvent) {
         val project = event.getData(PlatformDataKeys.PROJECT) ?: return
         val editor = event.getData(PlatformDataKeys.EDITOR) ?: return
@@ -54,7 +64,7 @@ class ExtractArrayAction : AnAction() {
             textArea.append("\n")
         }
 
-        val panel = JScrollPane(textArea)
+        val panel = JBScrollPane(textArea)
         panel.preferredSize = Dimension(640, 360)
         panel.verticalScrollBarPolicy = JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED
 
